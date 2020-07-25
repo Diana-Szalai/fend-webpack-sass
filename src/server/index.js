@@ -1,6 +1,16 @@
+const dotenv = require('dotenv');
+dotenv.config();
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+
+// Require the Aylien npm package
+var aylien = require("aylien_textapi");
+// You could call it aylienapi, or anything else
+var textapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY,
+  });
 var bodyParser = require('body-parser')
 var cors = require('cors')
 
